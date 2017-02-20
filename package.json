@@ -1,0 +1,15 @@
+{
+  "name": "my_movies_store",
+  "version": "1.0.0",
+  "description": "My collection of Released and Upcomming movies.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+ "dependencies": {
+    "express": "*",
+    "body-parser": "*",
+    "mongoose": "*"
+  },  "author": "Deepanshu Harbola",
+  "license": "ISC"
+}
