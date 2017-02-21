@@ -47,8 +47,8 @@ var movieSchema = mongoose.Schema({
 var Movie = module.exports = mongoose.model('Movie',movieSchema);
 
 // Get Movies
-module.exports.getMovies = function(callback, limit){
-    Movie.find(callback).limit(limit);
+module.exports.getMovies = function(callback){
+    Movie.find(callback).select({"title": 1, "release_date": 1, "movie_type": 1, "rating": 1, "image_url": 1});
 }
 
 // Get single Movie
