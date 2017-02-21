@@ -5,6 +5,8 @@ var mongoose = require('mongoose');
 var app = express();
 app.use(bodyParser.json());
 
+var port = 3001;
+
 Movie = require('./models/movie');
 
 // Connect to mongoose
@@ -26,13 +28,13 @@ app.get('/api/movies',function(req, res){
         if(err){
             throw err;
         }
-        console.log(movies);
         res.json(movies);
     });
 });
 
 // Get a single movie
 app.get('/api/movies/:_id',function(req, res){
+    console.log("call to get a movie");
     Movie.getMovieById(req.params._id,function(err, movie){
         if(err){
             throw err;
@@ -43,6 +45,7 @@ app.get('/api/movies/:_id',function(req, res){
 
 // Add a movie
 app.post('/api/movies',function(req, res){
+    console.log("call to add a movie");
     var movie = req.body;
     Movie.addMovie(movie, function(err, movie){
         if(err){
@@ -54,6 +57,7 @@ app.post('/api/movies',function(req, res){
 
 // Update movie
 app.put('/api/movies/:_id',function(req, res){
+    console.log("call to update a movie");
     var id = req.params._id;
     var movie = req.body;
     Movie.updateMovie(id, movie, {}, function(err, movie){
@@ -66,6 +70,7 @@ app.put('/api/movies/:_id',function(req, res){
 
 // Delete movie
 app.delete('/api/movies/:_id',function(req, res){
+    console.log("call to delete a movie");
     var id = req.params._id;
     Movie.deleteMovie(id, function(err, movie){
         if(err){
@@ -75,5 +80,5 @@ app.delete('/api/movies/:_id',function(req, res){
     });
 });
 
-app.listen(3001);
-console.log('Listening on port number 3001');
+app.listen(port);
+console.log('Listening on port number '+port);
