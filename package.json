@@ -1,7 +1,7 @@
 {
   "name": "my_movies_store",
   "version": "1.0.0",
-  "description": "My collection of Released and Upcomming movies.",
+  "description": "My collection of Released movies.",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

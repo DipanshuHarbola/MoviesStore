@@ -1,50 +1,6 @@
 var mongoose = require('mongoose');
 
-// Movie Schema
-var movieSchema = mongoose.Schema({
-    title:{
-        type: String,
-        required: true
-    },
-    release_date:{
-        type: String,
-        required : true
-    },
-    description:{
-        type: String,
-        required : true
-    },
-    director:{
-        type: String,
-        required : true
-    },
-    writer:{
-        type: String,
-    },
-    stars:{
-        type: String,
-        required : true
-    },
-    movie_type:{
-        type: String,
-        required : true
-    },
-    duration:{
-        type: String
-    },
-    rating:{
-        type: String
-    },
-    image_url:{
-        type: String
-    },
-    create_date:{
-        type: Date,
-        default: Date.now
-    }
-});
-
-var Movie = module.exports = mongoose.model('Movie',movieSchema);
+var Movie = require('./movie_schema');
 
 // Get Movies
 module.exports.getMovies = function(callback){
@@ -62,7 +18,7 @@ module.exports.addMovie = function(movie,callback){
 }
 
 // Update Movie
-module.exports.updateMovie = function(id, movie, options, callback){
+module.exports.updateMovie = function(id, movie, callback){
     var query = {_id: id};
     var update = {
         title : movie.title,
@@ -76,7 +32,7 @@ module.exports.updateMovie = function(id, movie, options, callback){
         rating : movie.rating,
         image_url : movie.image_url
     }
-    Movie.findOneAndUpdate(query, update, options, callback);
+    Movie.findOneAndUpdate(query, update, callback);
 }
 
 // Delete Movie

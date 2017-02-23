@@ -7,7 +7,7 @@ app.use(bodyParser.json());
 
 var port = 3001;
 
-Movie = require('./models/movie');
+Movie = require('./models/crud_oepration');
 
 // Connect to mongoose
 mongoose.connect('mongodb://localhost/mymoviesstore');
